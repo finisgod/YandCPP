@@ -23,9 +23,7 @@ int main(int argc , char* argv[])
 	
 	int count = 0;
 	
-	//если клетки будут меняться одновременно
 	
-	//Обнуление статус массива
 	int status[M][N] ;
 	{
 		for (int q = 0; q < M; q++)
@@ -41,7 +39,7 @@ int main(int argc , char* argv[])
 
 		cout << endl;
 	}
-	//вывод состояния 
+	//ГўГ»ГўГ®Г¤ Г±Г®Г±ГІГ®ГїГ­ГЁГї 
 	
 	{
 		for (int i = 0; i < M; i++)
@@ -53,7 +51,7 @@ int main(int argc , char* argv[])
 		}
 	}
 
-	//вывод начальной клетки
+	
 
 	cout << "Start" << endl << endl;
 
@@ -70,9 +68,6 @@ int main(int argc , char* argv[])
 
 	//check
 
-	//Условие 1 Живая клетка, у которой меньше двух живых соседей, погибает.
-	//Условие 2 Живая клетка, у которой два или три живых соседа, выживает.
-	//условие 3 Мёртвая клетка, у которой три живых соседа, возрождается.
 
 
 	for (int cikl = 0; cikl > -1; cikl++)
@@ -82,11 +77,7 @@ int main(int argc , char* argv[])
 			for (int j = 0; j < M; j++)
 			{
 
-				//Подсчет Живых клеток
-
-				//Условие для граничной клетки
-
-				//Верхняя строка без углов
+				
 				if (i == 0 && j != 0 && j != N - 1)
 					for (int k = 0; k < 2; k++)
 					{
@@ -97,7 +88,7 @@ int main(int argc , char* argv[])
 						}
 					}
 
-				//Нижняя срока без углов
+				
 				else
 					if (i == M - 1 && j != 0 && j != N - 1)
 						for (int k = M - 2; k < M; k++)
@@ -109,7 +100,7 @@ int main(int argc , char* argv[])
 							}
 						}
 
-				//Левый столбец без углов
+				
 					else
 						if (j == 0 && i != 0 && i != M - 1)
 							for (int k = i - 1; k < i + 2; k++)
@@ -121,7 +112,7 @@ int main(int argc , char* argv[])
 								}
 							}
 
-				//Правый столбец без углов
+				
 						else
 							if (j == N - 1 && i != 0 && i != M - 1)
 								for (int k = i - 1; k < i + 2; k++)
@@ -133,9 +124,7 @@ int main(int argc , char* argv[])
 									}
 								}
 
-				//Углы
-
-				//Левый верхний
+				
 							else
 								if (j == 0 && i == 0)
 									for (int k = 0; k < 2; k++)
@@ -147,7 +136,7 @@ int main(int argc , char* argv[])
 										}
 									}
 
-				//Левый нижний
+				
 								else
 									if (j == 0 && i == M - 1)
 										for (int k = M - 2; k < M; k++)
@@ -160,7 +149,7 @@ int main(int argc , char* argv[])
 
 										}
 
-				//Правый верхний
+				
 									else
 										if (j == N - 1 && i == 0)
 											for (int k = 0; k < 2; k++)
@@ -172,7 +161,7 @@ int main(int argc , char* argv[])
 												}
 											}
 
-				//Правый нижний
+				
 										else
 											if (j == N - 1 && i == M - 1)
 												for (int k = M - 2; k < M; k++)
@@ -198,9 +187,7 @@ int main(int argc , char* argv[])
 
 				if (a[i][j] == 1)
 					count--;
-				//cout << count тест счетчика живых соседей
-
-				//Убийство , выживание , возрождение клетки
+				
 				status[i][j] = a[i][j];
 				if (count < 2)
 					status[i][j] = 0;
@@ -216,11 +203,11 @@ int main(int argc , char* argv[])
 
 		cout << endl;
 
-		//Таймер
+		
 		timer++;
 		cout << endl << "Timer :  " << timer << " sec" << endl << endl;
 
-		//вывод состояния 
+		
 
 
 			for (int q = 0; q < M; q++)
@@ -236,7 +223,7 @@ int main(int argc , char* argv[])
 
 			cout << endl;
 		
-		//Чек дальнейших изменений .Остановка программы , если больше никаких изменений с клетками не будет .
+		
 		
 			for (int q = 0; q < M; q++)
 			{
@@ -262,7 +249,7 @@ int main(int argc , char* argv[])
 
 			stopper = 0;
 		
-		//обновление сетки
+		
 		{
 			for (int i = 0; i < M; i++)
 			{
